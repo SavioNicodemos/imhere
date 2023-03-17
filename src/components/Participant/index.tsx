@@ -1,13 +1,18 @@
-import { View, Text } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
 
-const Participant: React.FC = () => {
+import { styles } from './styles';
+
+export const Participant: React.FC = () => {
   return (
-    <View>
-      <Text>
+    <View style={styles.container}>
+      <Text style={styles.name}>
         Sávio Nicodemos
       </Text>
+
+      <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>-</Text>
+        </TouchableOpacity>
     </View>
   );
 }
-
-export default Participant;
