@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
 
@@ -7,6 +8,8 @@ import { styles } from './styles';
 export function Home() {
   const [participants, setParticipants] = useState<string[]>([]);
   const [participantName, setParticipantName] = useState('');
+
+  const formattedDate = format(new Date(), "EEEE, MMMM d, yyyy");
 
   function handleParticipantAdd() {
     if (participants.includes(participantName)) {
@@ -38,7 +41,7 @@ export function Home() {
       </Text>
 
       <Text style={styles.eventDate}>
-        Friday, March 17, 2023.
+        {formattedDate}
       </Text>
 
       <View style={styles.form}>
