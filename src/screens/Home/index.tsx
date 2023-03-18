@@ -4,15 +4,15 @@ import { Text, View, TextInput, TouchableOpacity, FlatList, Alert } from 'react-
 import { Participant } from '../../components/Participant';
 import { styles } from './styles';
 
-export default function Home() {
+export function Home() {
   const [participants, setParticipants] = useState<string[]>([]);
   const [participantName, setParticipantName] = useState('');
 
   function handleParticipantAdd() {
     if (participants.includes(participantName)) {
       return Alert.alert(
-        'Participante existe',
-        'Já existe um participante na lista com esse nome.'
+        'Participant exists',
+        'There is already a participant in the list with this name.'
       )
     }
     setParticipants(prev => [...prev, participantName]);
@@ -20,13 +20,13 @@ export default function Home() {
   }
 
   function handleParticipantRemove(name: string) {
-    Alert.alert('Remover', `Deseja remover o participante ${name}?`, [
+    Alert.alert('Remove', `Do you want to remove the participant ${name}?`, [
       {
-        text: 'Sim',
+        text: 'Yes',
         onPress: () => setParticipants(prev => prev.filter(participant => participant !== name)),
       },
       {
-        text: 'Não',
+        text: 'No',
         style: 'cancel'
       }
     ])
@@ -34,17 +34,17 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>
-        Nome do evento
+        Event name
       </Text>
 
       <Text style={styles.eventDate}>
-        sexta, 4 de Novembro de 2022.
+        Friday, March 17, 2023.
       </Text>
 
       <View style={styles.form}>
         <TextInput
           style={styles.input}
-          placeholder="Nome do participante"
+          placeholder="Participant name"
           placeholderTextColor="#6b6b6b"
           onChangeText={setParticipantName}
           value={participantName}
@@ -68,7 +68,7 @@ export default function Home() {
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <Text style={styles.listEmptyText}>
-            Ninguém chegou no evento ainda? Adicione um participante
+            Has anyone arrived at the event yet? Add a participant!
           </Text>
         )}
       />
