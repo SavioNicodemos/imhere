@@ -1,8 +1,8 @@
 <h1 align="center">Welcome to ImHere!</h1>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/SavioNicodemos/imhere/main/screenshots/ImHere%20-%20No%20Participants.png" alt="Screenshot of ImHere without any item" style="max-width: 20%;"  />
-  <img src="https://raw.githubusercontent.com/SavioNicodemos/imhere/main/screenshots/ImHere%20-%20Participant%20List.png" alt="Screenshot of list of participants" style="max-width: 20%;"  />
+  <img src="https://raw.githubusercontent.com/SavioNicodemos/imhere/main/screenshots/ImHere%20-%20No%20Participants.png" alt="Screenshot of ImHere without any item" style="width: 300px;"  />
+  <img src="https://raw.githubusercontent.com/SavioNicodemos/imhere/main/screenshots/ImHere%20-%20Participant%20List.png" alt="Screenshot of list of participants" style="width: 300px;"  />
 </p>
 
 ## What is ImHere?
