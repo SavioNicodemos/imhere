@@ -10,7 +10,10 @@ export default function Home() {
 
   function handleParticipantAdd() {
     if (participants.includes(participantName)) {
-      return Alert.alert('Participante existe', 'Já existe um participante na lista com esse nome.')
+      return Alert.alert(
+        'Participante existe',
+        'Já existe um participante na lista com esse nome.'
+      )
     }
     setParticipants(prev => [...prev, participantName]);
     setParticipantName('');
@@ -20,14 +23,13 @@ export default function Home() {
     Alert.alert('Remover', `Deseja remover o participante ${name}?`, [
       {
         text: 'Sim',
-        onPress: () => Alert.alert("Deletado!")
+        onPress: () => setParticipants(prev => prev.filter(participant => participant !== name)),
       },
       {
         text: 'Não',
         style: 'cancel'
       }
     ])
-    console.log(`Você apertou para remover o participante ${name}!`);
   }
   return (
     <View style={styles.container}>
