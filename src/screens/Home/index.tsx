@@ -1,4 +1,4 @@
-import { Text, View, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
 
 import { Participant } from '../../components/Participant';
 import { styles } from './styles';
@@ -7,10 +7,23 @@ export default function Home() {
   const participants = ['Sávio', 'Rachel', 'Thais', 'Rafael', 'Lucas', 'Anderson', 'Alessandra', 'João', 'Ariosto', 'Ana', 'Andressa'];
 
   function handleParticipantAdd() {
-    console.log('Você apertou no botão de Adicionar!');
+    if (participants.includes("Sávio")) {
+      return Alert.alert('Participante existe', 'Já existe um participante na lista com esse nome.')
+    }
+    console.log(`Você apertou para adicionar um participante!`);
   }
 
   function handleParticipantRemove(name: string) {
+    Alert.alert('Remover', `Deseja remover o participante ${name}?`, [
+      {
+        text: 'Sim',
+        onPress: () => Alert.alert("Deletado!")
+      },
+      {
+        text: 'Não',
+        style: 'cancel'
+      }
+    ])
     console.log(`Você apertou para remover o participante ${name}!`);
   }
   return (
@@ -36,13 +49,13 @@ export default function Home() {
       </View>
 
       <FlatList
-        data={[]}
+        data={participants}
         keyExtractor={item => item}
         renderItem={({ item }) => (
           <Participant
             key={item}
             name={item}
-            onRemove={() => handleParticipantRemove("savinho")}
+            onRemove={() => handleParticipantRemove(item)}
           />
         )}
         showsVerticalScrollIndicator={false}
